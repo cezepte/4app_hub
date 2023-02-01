@@ -1,67 +1,72 @@
 <div class="container" id="container-calculator">
     <div class="calculator-display">
-        <span id=calculator-display-value>0</span>
+        <span class="calculator-display-value" id=calculator-display-value-1>0</span>
+        <span class="calculator-display-value" id=calculator-display-value-2>0</span>
     </div>
     <div class="calculator-keyboard">
         <div class="calculator-keyboard-row">
-            <div class="calculator-keyboard-key" id="left-bracket-button"><a href="#">(</a></div>
-            <div class="calculator-keyboard-key" id="right-bracket-button"><a href="#">)</a></div>
-            <div class="calculator-keyboard-key" id="mc-button"><a href="#">mc</a></div>
-            <div class="calculator-keyboard-key" id="m+-button"><a href="#">m+</a></div>
-            <div class="calculator-keyboard-key" id="m--button"><a href="#">m-</a></div>
-            <div class="calculator-keyboard-key" id="mr-button"><a href="#">mr</a></div>
+            <div class="calculator-keyboard-key" id="left-bracket-button"><a href="#"></a></div>
+            <div class="calculator-keyboard-key" id="right-bracket-button"><a href="#"></a></div>
+            <div class="calculator-keyboard-key" id="mc-button"><a href="#"></a></div>
+            <div class="calculator-keyboard-key" id="m+-button"><a href="#"></a></div>
+            <div class="calculator-keyboard-key" id="m--button"><a href="#"></a></div>
+            <div class="calculator-keyboard-key" id="mr-button"><a href="#"></a></div>
             <div class="calculator-keyboard-key" id="ac-button"><a href="#">AC</a></div>
-            <div class="calculator-keyboard-key" id="change-polarity-button"><a href="#">+/-</a></div>
-            <div class="calculator-keyboard-key" id="percent-button"><a href="#">%</a></div>
-            <div class="calculator-keyboard-key sign" id="/-button"><a href="#">/</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="change-polarity-button"><a href="#">+/-</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="percent-button"><a href="#">%</a></div>
+            <div class="calculator-keyboard-key double-parameter" id="/-button"><a href="#">/</a></div>
         </div>
         <div class="calculator-keyboard-row">
-            <div class="calculator-keyboard-key" id="2^nd-button"><a href="#">2<sup>nd</sup></a></div>
-            <div class="calculator-keyboard-key" id="x^2-button"><a href="#">x<sup>2</sup></a></div>
-            <div class="calculator-keyboard-key" id="x^3-button"><a href="#">x<sup>3</sup></a></div>
-            <div class="calculator-keyboard-key" id="y^x-button"><a href="#">y<sup>x</sup></a></div>
-            <div class="calculator-keyboard-key" id="e^x-button"><a href="#">e<sup>x</sup></a></div>
-            <div class="calculator-keyboard-key" id="10^x-button"><a href="#">10<sup>x</sup></a></div>
+            <div class="calculator-keyboard-key single-parameter" id="2^nd-button"><a href="#">2<sup>x</sup></a></div>
+            <div class="calculator-keyboard-key single-parameter" id="x^2-button"><a href="#">x<sup>2</sup></a></div>
+            <div class="calculator-keyboard-key single-parameter" id="x^3-button"><a href="#">x<sup>3</sup></a></div>
+            <div class="calculator-keyboard-key double-parameter" id="y^x-button"><a href="#">y<sup>x</sup></a></div>
+            <div class="calculator-keyboard-key single-parameter" id="e^x-button"><a href="#">e<sup>x</sup></a></div>
+            <div class="calculator-keyboard-key single-parameter" id="10^x-button"><a href="#">10<sup>x</sup></a></div>
             <div class="calculator-keyboard-key number" id="7-button"><a href="#">7</a></div>
             <div class="calculator-keyboard-key number" id="8-button"><a href="#">8</a></div>
             <div class="calculator-keyboard-key number" id="9-button"><a href="#">9</a></div>
-            <div class="calculator-keyboard-key sign" id="multiple-button"><a href="#">X</a></div>
+            <div class="calculator-keyboard-key double-parameter" id="*-button"><a href="#">X</a></div>
         </div>
         <div class="calculator-keyboard-row">
-            <div class="calculator-keyboard-key" id="1/x-button"><a href="#">1/x</a></div>
-            <div class="calculator-keyboard-key" id="x-sqrt-2-button"><a href="#">&radic;x</a></div>
-            <div class="calculator-keyboard-key" id="x-sqrt-3-button"><a href="#">&#x221B;x</a></div>
-            <div class="calculator-keyboard-key" id="y-sqrt-x-button"><a href="#"><sup>y</sup>&radic;x</a></div>
-            <div class="calculator-keyboard-key" id="ln-button"><a href="#">ln</a></div>
-            <div class="calculator-keyboard-key" id="log10-button"><a href="#">log<sub>10</sub></a></div>
+            <div class="calculator-keyboard-key single-parameter" id="1/x-button"><a
+                    href="#"><sup>1</sup>/<sub>x</sub></a></div>
+            <div class="calculator-keyboard-key single-parameter" id="x-sqrt-2-button"><a href="#">&radic;x</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="x-sqrt-3-button"><a href="#">&#x221B;x</a></div>
+            <div class="calculator-keyboard-key double-parameter" id="y-sqrt-x-button">
+                <a href="#"><sup>y</sup>&radic;x</a>
+            </div>
+            <div class="calculator-keyboard-key single-parameter" id="ln-button"><a href="#">ln</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="log10-button"><a href="#">log<sub>10</sub></a>
+            </div>
             <div class="calculator-keyboard-key number" id="4-button"><a href="#">4</a></div>
             <div class="calculator-keyboard-key number" id="5-button"><a href="#">5</a></div>
             <div class="calculator-keyboard-key number" id="6-button"><a href="#">6</a></div>
-            <div class="calculator-keyboard-key sign" id="--button"><a href="#">-</a></div>
+            <div class="calculator-keyboard-key double-parameter" id="--button"><a href="#">-</a></div>
         </div>
         <div class="calculator-keyboard-row">
-            <div class="calculator-keyboard-key" id="-button"><a href="#">x!</a></div>
-            <div class="calculator-keyboard-key" id="sin-button"><a href="#">sin</a></div>
-            <div class="calculator-keyboard-key" id="cos-button"><a href="#">cos</a></div>
-            <div class="calculator-keyboard-key" id="tan-button"><a href="#">tan</a></div>
-            <div class="calculator-keyboard-key" id="e-button"><a href="#">e</a></div>
-            <div class="calculator-keyboard-key" id="ee-button"><a href="#">EE</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="-button"><a href="#">x!</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="sin-button"><a href="#">sin</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="cos-button"><a href="#">cos</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="tan-button"><a href="#">tan</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="e-button"><a href="#">e</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="ee-button"><a href="#">EE</a></div>
             <div class="calculator-keyboard-key number" id="1-button"><a href="#">1</a></div>
             <div class="calculator-keyboard-key number" id="2-button"><a href="#">2</a></div>
             <div class="calculator-keyboard-key number" id="3-button"><a href="#">3</a></div>
-            <div class="calculator-keyboard-key sign" id="+-button"><a href="#">+</a></div>
+            <div class="calculator-keyboard-key double-parameter" id="+-button"><a href="#">+</a></div>
         </div>
         <div class="calculator-keyboard-row">
-            <div class="calculator-keyboard-key" id="rad-button"><a href="#">Rad</a></div>
-            <div class="calculator-keyboard-key" id="sinh-button"><a href="#">sinh</a></div>
-            <div class="calculator-keyboard-key" id="cosh-button"><a href="#">cosh</a></div>
-            <div class="calculator-keyboard-key" id="tanh-button"><a href="#">tanh</a></div>
-            <div class="calculator-keyboard-key" id="pi-button"><a href="#">&pi;</a></div>
-            <div class="calculator-keyboard-key" id="rand-button"><a href="#">Rand</a></div>
+            <div class="calculator-keyboard-key" id="rad-button"><a href="#"></a></div>
+            <div class="calculator-keyboard-key single-parameter" id="sinh-button"><a href="#">sinh</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="cosh-button"><a href="#">cosh</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="tanh-button"><a href="#">tanh</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="pi-button"><a href="#">&pi;</a></div>
+            <div class="calculator-keyboard-key single-parameter" id="rand-button"><a href="#">Rand</a></div>
             <div class="calculator-keyboard-key" id="-button"><a href="#"></a></div>
             <div class="calculator-keyboard-key number" id="0-button"><a href="#">0</a></div>
-            <div class="calculator-keyboard-key number" id=",-button"><a href="#">,</a></div>
-            <div class="calculator-keyboard-key sign" id="=-button"><a href="#">=</a></div>
+            <div class="calculator-keyboard-key number" id=",-button"><a href="#">.</a></div>
+            <div class="calculator-keyboard-key" id="equal-button"><a href="#">=</a></div>
         </div>
     </div>
 </div>

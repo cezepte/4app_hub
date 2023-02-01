@@ -1,4 +1,6 @@
 "use strict";
+import Calculator from './calculator.js'
+import Gallery from './gallery.js';
 window.addEventListener('DOMContentLoaded', () => {
     const navlist = document.querySelectorAll('nav ul li')
     const backlight = document.querySelector('nav .backlight')
@@ -42,34 +44,89 @@ async function switchContent(navbarItem) {
                 case 'calculator-link':
                     console.log('calculator')
                     const numbers = document.querySelectorAll('.number')
-                    const signs = document.querySelectorAll('.sign')
-                    console.log(numbers)
-                    numbers.forEach((item) => {
-                        item.addEventListener('click', (e) => {
-                            e.preventDefault()
-                            let currVal = document.getElementById('calculator-display-value').innerHTML
-                            let newVal
-                            if (currVal == 0) {
-                                newVal = item.id.replace('-button', '')
-                            } else {
-                                newVal = currVal + item.id.replace('-button', '')
-
-                            }
-                            document.getElementById('calculator-display-value').innerHTML = newVal
+                    const doubleParameterButtons = document.querySelectorAll('.double-parameter')
+                    const singleParameterButtons = document.querySelectorAll('.single-parameter')
+                    const equalsButton = document.getElementById('equal-button')
+                    const allClearButton = document.querySelector('#ac-button')
+                    let firstVal = document.querySelector('#calculator-display-value-1')
+                    let secondVal = document.querySelector('#calculator-display-value-2')
+                    firstVal.style.display = "none"
+                    let typeOfOperation
+                    let calculator = new Calculator(firstVal, secondVal)
+                    numbers.forEach(button => {
+                        button.addEventListener('click', () => {
+                            calculator.appendNumberToDisplay(button.innerText)
+                            calculator.updateDisplay()
                         })
                     })
-                    signs.forEach((item) => {
-                        item.addEventListener('click', (e) => {
-                            e.preventDefault()
-                            let sign = item.id.replace('-button')
+                    doubleParameterButtons.forEach(button => {
+                        button.addEventListener('click', () => {
+                            typeOfOperation = 'double-parameter'
+                            calculator.chooseOperation(button.innerText, typeOfOperation)
+                            calculator.updateDisplay()
                         })
                     })
-                    document.getElementById('ac-button').addEventListener('click', () => {
-                        document.getElementById('calculator-display-value').innerHTML = 0
+                    singleParameterButtons.forEach(button => {
+                        button.addEventListener('click', () => {
+                            typeOfOperation = 'single-parameter'
+                            calculator.chooseOperation(button.innerText, typeOfOperation)
+                            calculator.updateDisplay()
+                        })
+                    })
+                    allClearButton.addEventListener('click', button => {
+                        calculator.clearData()
+                        calculator.updateDisplay()
                     })
 
-                    break;
-                case 'art-gallery-link':
+                    equalsButton.addEventListener('mousedown', button => {
+                        calculator.calculate(typeOfOperation)
+                        calculator.updateDisplay()
+                    })
+                    document.addEventListener('keydown', function (event) {
+                        let patternForNumbers = /[0-9]/g;
+                        let patternForOperators = /[+\-*\/]/g
+                        if (event.key.match(patternForNumbers)) {
+                            event.preventDefault();
+                            calculator.appendNumberToDisplay(event.key)
+                            calculator.updateDisplay()
+                        }
+                        if (event.key === '.') {
+                            event.preventDefault();
+                            calculator.appendNumberToDisplay(event.key)
+                            calculator.updateDisplay()
+                        }
+                        if (event.key.match(patternForOperators)) {
+                            event.preventDefault();
+                            calculator.chooseOperation(event.key)
+                            calculator.updateDisplay()
+                        }
+                        if (event.key === 'Enter' || event.key === '=') {
+                            event.preventDefault();
+                            calculator.compute()
+                            calculator.updateDisplay()
+                        }
+                        if (event.key === "Backspace") {
+                            event.preventDefault();
+                            calculator.deleteNumber()
+                            calculator.updateDisplay()
+                        }
+                        if (event.key == 'Delete') {
+                            event.preventDefault();
+                            calculator.clear()
+                            calculator.updateDisplay()
+                        }
+                    });
+                    break
+                case 'gallery-link':
+                    document.addEventListener('keydown', () => { })
+                    let gallery = new Gallery('photo-', 10, './assets/gallery/', document.getElementById('image-slider'), document.getElementById('main-image'))
+                    const miniImages = document.querySelectorAll('.mini-image')
+                    gallery.setMainImage('mini-image-1')
+                    miniImages.forEach(image => {
+                        image.addEventListener('click', (event) => {
+                            gallery.setMainImage(event.target.id)
+                        })
+                    })
                     break;
             }
         })

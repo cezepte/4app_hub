@@ -71,7 +71,7 @@
     background-color: orange;
 }
 
-#calculator-display-value {
+.calculator-display-value {
     color: white;
     font-size: 75px;
     font-weight: 200;

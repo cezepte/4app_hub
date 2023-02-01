@@ -1,6 +1,7 @@
 @import "navbar.css";
 @import "display.css";
 @import "calculator.css";
+@import "gallery.css";
 
 body {
     margin: 0px;
