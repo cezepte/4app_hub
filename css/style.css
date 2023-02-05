@@ -2,6 +2,7 @@
 @import "display.css";
 @import "calculator.css";
 @import "gallery.css";
+@import "memory.css";
 
 body {
     margin: 0px;

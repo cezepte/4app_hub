@@ -1,11 +1,13 @@
 "use strict";
 import Calculator from './calculator.js'
 import Gallery from './gallery.js';
+import Memory from './memory.js';
 window.addEventListener('DOMContentLoaded', () => {
     const navlist = document.querySelectorAll('nav ul li')
     const backlight = document.querySelector('nav .backlight')
 
-    // document.getElementById('main-page-link').classList.add('active')
+    document.getElementById('main-page-link').classList.add('active')
+    switchContent(document.getElementById('main-page-link'))
     navlist.forEach((item) => {
         item.addEventListener('mouseover', () => {
             backlight.classList.add('hovered')
@@ -126,6 +128,26 @@ async function switchContent(navbarItem) {
                         image.addEventListener('click', (event) => {
                             gallery.setMainImage(event.target.id)
                         })
+                    })
+                    break;
+                case 'memory-link':
+                    const imgHolders = document.querySelectorAll('.left')
+                    const cubeHolders = document.querySelectorAll('.cube')
+                    let memory = new Memory(10, imgHolders, './assets/memory/', document.getElementById('best-score'), document.getElementById('current-score'))
+                    memory.shuffle()
+                    cubeHolders.forEach(cube => {
+                        cube.addEventListener('click', () => {
+                            cube.classList.toggle('active-cube')
+                            memory.showAndCompare()
+                        })
+                    })
+                    document.getElementById('sidebar-shuffle').addEventListener('click', () => {
+                        console.log('clicked')
+                        memory.shuffle()
+                    })
+                    document.getElementById('overlay-shuffle').addEventListener('click', () => {
+                        document.getElementById('overlay').style.display = 'none'
+                        document.getElementById('memory-container').style.display = 'flex'
                     })
                     break;
             }
