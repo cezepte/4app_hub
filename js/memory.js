@@ -73,4 +73,7 @@ export default class Memory {
             }, 600)
         }
     }
+    getScores() {
+        return [this.#currentScore, this.#highestScore]
+    }
 }

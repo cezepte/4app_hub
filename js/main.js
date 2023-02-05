@@ -148,6 +148,9 @@ async function switchContent(navbarItem) {
                                     setTimeout(() => {
                                         document.getElementById('overlay').style.display = 'flex'
                                         document.getElementById('memory-container').style.display = 'none'
+                                        let scores = memory.getScores()
+                                        document.getElementById('overlay-header').innerHTML = `Gra zakończona! <br> Twój wynik: ${scores[0]} <br> Najlepszy wynik: ${scores[1]}`
+                                        document.getElementById('overlay-shuffle').innerHTML = 'Zagraj ponownie'
                                     }, 500)
                                 }
                             }, 600)
