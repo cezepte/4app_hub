@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 60%
+    width: 60%;
+    align-items: center;
 }
 
 .block-row {
@@ -30,6 +31,8 @@
     display: flex;
     flex-direction: column;
     border-left: 3px solid black;
+    padding: 20px;
+    color: white;
 }
 
 .block {
@@ -87,8 +90,8 @@
     align-items: center;
     z-index: 300;
     background-color: rgba(0, 0, 0, 0.3);
-    transition: display 0.3s;
     height: 100%;
     border-radius: 15px;
     padding: 0px 15px;
+    transition: display 1s;
 }

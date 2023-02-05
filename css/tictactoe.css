@@ -13,10 +13,13 @@
     border: 1px solid black;
 }
 
-.cross {
-    background-color: blue;
+#tictactoe-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
-.circle {
-    background-color: red;
+.sidebar {
+    width: 30%;
+    color: green
 }

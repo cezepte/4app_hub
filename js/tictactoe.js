@@ -1,21 +1,34 @@
 export default class Tictactoe {
     #move = 'x'
-
-    constructor() {
-
+    #resultElem
+    #isDone = 0
+    constructor(resultElem) {
+        this.#resultElem = resultElem
     }
     insert(element) {
-        switch (this.#move) {
-            case 'x':
-                element.classList.add('circle')
-                this.#move = 'o'
-                break;
-            case 'o':
-                element.classList.add('cross')
-                this.#move = 'x'
-                break;
+        if (element.children.length == 0 && this.#isDone == 0) {
+            let newElem = document.createElement('div')
+            newElem.style.width = '100%'
+            newElem.style.height = '100%'
+            newElem.style.backgroundRepeat = 'no-repeat'
+            newElem.style.backgroundSize = 'contain'
+            newElem.style.zIndex = '-1'
+            switch (this.#move) {
+                case 'x':
+                    element.classList.add('cross')
+                    newElem.style.backgroundImage = "url('./assets/tictactoe/cross.png')"
+                    element.append(newElem)
+                    this.#move = 'o'
+                    break;
+                case 'o':
+                    element.classList.add('circle')
+                    newElem.style.backgroundImage = "url('./assets/tictactoe/circle.png')"
+                    element.append(newElem)
+                    this.#move = 'x'
+                    break;
+            }
+            this.checkForWin()
         }
-        this.checkForWin()
     }
     checkForWin() {
         const allPosibleWins = [
@@ -38,15 +51,35 @@ export default class Tictactoe {
         crosses.forEach(element => {
             crossIds.push(element.id)
         })
-        if (circles.length >= 3) {
+        if (circles.length >= 3 || crosses.length >= 3) {
             allPosibleWins.forEach(posibility => {
                 if (circleIds.includes(posibility[0]) && circleIds.includes(posibility[1]) && circleIds.includes(posibility[2])) {
-                    console.log('circle wins')
-                } else if (crossIds.includes(posibility[0]) && crossIds.includes(posibility[1]) && crossIds.includes(posibility[2])) {
-                    console.log('cross wins')
+                    posibility.forEach(cell => {
+                        document.getElementById(cell).style.backgroundColor = 'rgba(0, 255, 0, 1)'
+                    })
+                    this.#resultElem.innerHTML = 'Wygrywa kółko!'
+                    this.#isDone = 1
+                }
+                if (crossIds.includes(posibility[0]) && crossIds.includes(posibility[1]) && crossIds.includes(posibility[2])) {
+                    posibility.forEach(cell => {
+                        document.getElementById(cell).style.backgroundColor = 'rgba(0, 255, 0, 1)'
+                    })
+                    this.#isDone = 1
+                    this.#resultElem.innerHTML = 'Wygrywa krzyżyk!'
                 }
             })
         }
     }
-
-}
+    newGame() {
+        const allCells = document.querySelectorAll('.cell')
+        allCells.forEach(cell => {
+            cell.style.backgroundColor = ''
+            cell.innerHTML = ''
+            this.#resultElem = ''
+            this.#isDone = 0
+            cell.classList.remove('circle')
+            cell.classList.remove('cross')
+            this.#move = 'x'
+        })
+    }
+} 

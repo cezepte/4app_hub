@@ -138,9 +138,19 @@ async function switchContent(navbarItem) {
                     let memory = new Memory(10, imgHolders, './assets/memory/', document.getElementById('best-score'), document.getElementById('current-score'))
                     memory.shuffle()
                     cubeHolders.forEach(cube => {
-                        cube.addEventListener('click', () => {
+                        cube.addEventListener('click', async () => {
                             cube.classList.toggle('active-cube')
                             memory.showAndCompare()
+                            setTimeout(() => {
+                                let matchedPairs = document.querySelectorAll('.matched')
+                                console.log(matchedPairs)
+                                if (matchedPairs.length == 20) {
+                                    setTimeout(() => {
+                                        document.getElementById('overlay').style.display = 'flex'
+                                        document.getElementById('memory-container').style.display = 'none'
+                                    }, 500)
+                                }
+                            }, 600)
                         })
                     })
                     document.getElementById('sidebar-shuffle').addEventListener('click', () => {
@@ -154,11 +164,14 @@ async function switchContent(navbarItem) {
                     break;
                 case 'tictactoe-link':
                     const fields = document.querySelectorAll('.cell')
-                    let tictactoe = new Tictactoe()
+                    let tictactoe = new Tictactoe(document.getElementById('result'))
                     fields.forEach(field => {
                         field.addEventListener('click', (event) => {
-                            tictactoe.insert(event.target)
+                            tictactoe.insert(field)
                         })
+                    })
+                    document.getElementById('newGame').addEventListener('click', () => {
+                        tictactoe.newGame()
                     })
                     break;
             }
