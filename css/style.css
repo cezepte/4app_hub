@@ -3,6 +3,7 @@
 @import "calculator.css";
 @import "gallery.css";
 @import "memory.css";
+@import "tictactoe.css";
 
 body {
     margin: 0px;

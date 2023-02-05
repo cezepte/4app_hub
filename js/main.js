@@ -2,6 +2,8 @@
 import Calculator from './calculator.js'
 import Gallery from './gallery.js';
 import Memory from './memory.js';
+import Tictactoe from './tictactoe.js';
+
 window.addEventListener('DOMContentLoaded', () => {
     const navlist = document.querySelectorAll('nav ul li')
     const backlight = document.querySelector('nav .backlight')
@@ -148,6 +150,15 @@ async function switchContent(navbarItem) {
                     document.getElementById('overlay-shuffle').addEventListener('click', () => {
                         document.getElementById('overlay').style.display = 'none'
                         document.getElementById('memory-container').style.display = 'flex'
+                    })
+                    break;
+                case 'tictactoe-link':
+                    const fields = document.querySelectorAll('.cell')
+                    let tictactoe = new Tictactoe()
+                    fields.forEach(field => {
+                        field.addEventListener('click', (event) => {
+                            tictactoe.insert(event.target)
+                        })
                     })
                     break;
             }
